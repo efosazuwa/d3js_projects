@@ -1,1 +1,1 @@
-print "Money Time!!!"
+print "Money Time!!! We talkin' bout M's"
