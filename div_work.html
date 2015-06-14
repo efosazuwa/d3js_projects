@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset="utf-8">
+		<title>D3 Page Template</title>
+		<script type="text/javascript" src="d3-book/d3/d3.v3.js"></script>
+		<style type='text/css'>
+			div.bar{
+				display: inline-block;
+				width: 20px;
+				height: 75px;
+				background-color: teal;
+				margin-right: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var dataset = [];
+
+			for (i=0; i<25; i++){
+				newnumber = Math.floor(Math.random()*30)
+				dataset.push(newnumber)
+			};
+
+			/*b_dataset = d3.csv('price_data.csv', function(d){
+				console.log(d)
+			})*/
+			
+			d3.select('body').selectAll('div')
+				.data(dataset)
+				.enter()
+				.append('div')
+				.attr("class", "bar")
+				.style('height', function(d){
+					barheight = d*5;
+					return barheight+'px';
+				})
+				.style("opacity", function(d){
+					return (1/29)*d; 
+				});
+		</script>
+	</body>
+</html>
